@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PACTO-MI Digital | Conocimiento, comunidad e impacto</title>
+    <meta
+      name="description"
+      content="Plataforma digital para formar, conectar y movilizar jovenes y lideres comunitarios frente a la mineria ilegal."
+    />
+    <meta property="og:title" content="PACTO-MI Digital" />
+    <meta property="og:description" content="Conocimiento que conecta. Comunidad que actua. Impacto que se demuestra." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#7a171b" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="shell header" data-elevated="false">
+      <a class="brand" href="#inicio" aria-label="PACTO-MI Digital inicio">
+        <span class="brand-mark" aria-hidden="true">PM</span>
+        <span>
+          <strong>PACTO-MI</strong>
+          <small>Digital</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principal">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav-principal" class="nav" aria-label="Navegacion principal">
+        <a href="#conoce">Conoce</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#academy">Academy</a>
+        <a href="#actua">Actua</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#admin">Operacion</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Youth Action Network Against Illegal Mining and Organized Crime</p>
+            <h1>Conocimiento que conecta. Comunidad que actua. Impacto que se demuestra.</h1>
+            <p class="lead">
+              PACTO-MI Digital transforma talleres, sesiones y toolkits en una plataforma permanente para
+              aprender, organizar acciones locales y medir resultados sin exponer informacion sensible.
+            </p>
+            <div class="hero-actions" aria-label="Acciones principales">
+              <a class="btn primary" href="#registro">Unete a PACTO-MI</a>
+              <a class="btn secondary" href="#recursos">Explora recursos</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-label="Resumen visual del ciclo PACTO-MI">
+            <div class="photo-panel">
+              <div class="photo-sky"></div>
+              <div class="photo-crowd">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="photo-board">
+                <strong>220</strong>
+                <span>participantes iniciales</span>
+              </div>
+            </div>
+            <ol class="cycle" aria-label="Principio rector">
+              <li>Conocer</li>
+              <li>Aprender</li>
+              <li>Conectar</li>
+              <li>Actuar</li>
+              <li>Medir</li>
+              <li>Replicar</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact-strip" aria-label="Indicadores iniciales">
+        <div class="shell metric-row">
+          <article><strong data-count="300">0</strong><span>beneficiarios meta</span></article>
+          <article><strong data-count="6">0</strong><span>modulos Academy</span></article>
+          <article><strong data-count="4">0</strong><span>expert talks</span></article>
+          <article><strong data-count="90">0</strong><span>% meta planes accionables</span></article>
+        </div>
+      </section>
+
+      <section id="conoce" class="section shell">
+        <div class="section-head">
+          <p class="eyebrow">Conoce</p>
+          <h2>Informacion rigurosa sin sensacionalismo</h2>
+          <p>
+            La plataforma separa educacion, fuentes verificadas y accion comunitaria de denuncias publicas o
+            acusaciones nominales. Esa mejora es critica por el riesgo asociado al crimen organizado.
+          </p>
+        </div>
+        <div class="topic-grid">
+          <article class="topic-card">
+            <span class="icon-shape">01</span>
+            <h3>Problema</h3>
+            <p>Impactos ambientales, sociales, economicos y de gobernanza explicados con lenguaje accesible.</p>
+          </article>
+          <article class="topic-card">
+            <span class="icon-shape">02</span>
+            <h3>Territorios</h3>
+            <p>Cajamarca y Madre de Dios como cohortes iniciales, con expansion configurable a nuevas regiones.</p>
+          </article>
+          <article class="topic-card">
+            <span class="icon-shape">03</span>
+            <h3>Soluciones</h3>
+            <p>Mineria formal responsable, prevencion comunitaria, advocacy y rutas de accion juvenil.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="recursos" class="section resource-band">
+        <div class="shell">
+          <div class="section-head row-head">
+            <div>
+              <p class="eyebrow">Knowledge Hub</p>
+              <h2>Biblioteca viva con version, fuente y trazabilidad</h2>
+            </div>
+            <label class="search-box">
+              <span>Buscar</span>
+              <input id="resource-search" type="search" placeholder="toolkit, video, Cajamarca..." />
+            </label>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar recursos">
+            <button class="chip active" type="button" data-filter="Todos">Todos</button>
+            <button class="chip" type="button" data-filter="Toolkit">Toolkit</button>
+            <button class="chip" type="button" data-filter="Infografia">Infografia</button>
+            <button class="chip" type="button" data-filter="Video">Video</button>
+            <button class="chip" type="button" data-filter="Guia">Guia</button>
+          </div>
+          <div id="resource-grid" class="resource-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="academy" class="section shell">
+        <div class="section-head">
+          <p class="eyebrow">PACTO-MI Academy</p>
+          <h2>Seis modulos convertidos en rutas digitales medibles</h2>
+          <p>
+            Cada modulo combina microvideo, lectura, actividad, quiz y evidencia. El avance alimenta M&E sin
+            depender de hojas de calculo dispersas.
+          </p>
+        </div>
+        <div id="module-list" class="module-list"></div>
+      </section>
+
+      <section id="actua" class="section action-lab">
+        <div class="shell split">
+          <div>
+            <p class="eyebrow">Action Lab</p>
+            <h2>Convierte aprendizaje en un plan local</h2>
+            <p>
+              Este wizard genera un Action Canvas inicial. En produccion se conectaria a autenticacion,
+              revision de facilitadores, evidencia y exportacion PDF.
+            </p>
+            <div class="privacy-note">
+              <strong>Privacidad por defecto:</strong>
+              no se solicitan direcciones, coordenadas, telefonos ni datos sensibles en el MVP.
+            </div>
+          </div>
+          <form id="action-form" class="canvas-form">
+            <label>
+              Region
+              <select name="region" required>
+                <option value="">Selecciona</option>
+                <option>Cajamarca</option>
+                <option>Madre de Dios</option>
+                <option>Otra region</option>
+              </select>
+            </label>
+            <label>
+              Problema priorizado
+              <input name="problem" required placeholder="Ej. baja informacion sobre formalizacion" />
+            </label>
+            <label>
+              Objetivo de accion
+              <textarea name="objective" required placeholder="Describe el cambio concreto que quieres lograr"></textarea>
+            </label>
+            <label>
+              Indicador principal
+              <input name="indicator" required placeholder="Ej. 40 jovenes completan una sesion" />
+            </label>
+            <button class="btn primary" type="submit">Generar canvas</button>
+            <output id="canvas-output" class="canvas-output" aria-live="polite"></output>
+          </form>
+        </div>
+      </section>
+
+      <section id="impacto" class="section shell">
+        <div class="section-head row-head">
+          <div>
+            <p class="eyebrow">Impacto & M&E</p>
+            <h2>Dashboard publico con datos agregados</h2>
+          </div>
+          <select id="region-select" class="select-compact" aria-label="Filtrar region">
+            <option value="Todas">Todas las regiones</option>
+            <option value="Cajamarca">Cajamarca</option>
+            <option value="Madre de Dios">Madre de Dios</option>
+          </select>
+        </div>
+        <div id="impact-dashboard" class="dashboard"></div>
+      </section>
+
+      <section id="registro" class="section shell">
+        <div class="signup-panel">
+          <div>
+            <p class="eyebrow">Onboarding seguro</p>
+            <h2>Registro con consentimiento separado</h2>
+            <p>
+              El flujo recomendado valida email, registra terminos, consentimiento de imagen y visibilidad en
+              directorio como decisiones independientes y revocables.
+            </p>
+          </div>
+          <form class="signup-form">
+            <label>Correo institucional o personal<input type="email" placeholder="nombre@correo.com" /></label>
+            <label>Region<select><option>Cajamarca</option><option>Madre de Dios</option><option>Otra</option></select></label>
+            <label class="check"><input type="checkbox" /> Acepto terminos y privacidad</label>
+            <label class="check"><input type="checkbox" /> Deseo aparecer en el directorio de miembros</label>
+            <button class="btn primary" type="button">Solicitar invitacion</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="admin" class="section shell">
+        <div class="section-head">
+          <p class="eyebrow">Operacion</p>
+          <h2>CMS, gobierno editorial y sostenibilidad</h2>
+          <p>
+            La version entregada documenta el paso a backend real con Supabase, RLS, RBAC, auditoria, estados
+            editoriales, almacenamiento versionado y exportes M&E.
+          </p>
+        </div>
+        <div class="ops-grid">
+          <article><h3>Contenido</h3><p>Borrador, revision tecnica, comunicacion, aprobado, publicado y archivado.</p></article>
+          <article><h3>Seguridad</h3><p>Opt-in, minimizacion de datos, MFA para staff, auditoria y politicas de retencion.</p></article>
+          <article><h3>Medicion</h3><p>Eventos de producto, cohortes, metas vs actual, evidencias pendientes y exportes.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-grid">
+        <div>
+          <strong>PACTO-MI Digital</strong>
+          <p>Empoderando jovenes para proteger territorios y fortalecer la mineria formal.</p>
+        </div>
+        <div>
+          <span>AEIF 2025</span>
+          <span>Fulbright Peru</span>
+          <span>U.S.-Peru Alumni</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>

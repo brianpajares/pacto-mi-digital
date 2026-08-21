@@ -1,0 +1,20 @@
+{
+  "name": "pacto-mi-digital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PACTO-MI Digital - Plataforma de conocimiento, comunidad e impacto contra la mineria ilegal.",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "node scripts/validate-static.js",
+    "start": "node scripts/serve-static.js"
+  },
+  "keywords": [
+    "pacto-mi",
+    "mineria-ilegal",
+    "impacto",
+    "educacion",
+    "comunidad"
+  ],
+  "author": "PACTO-MI",
+  "license": "UNLICENSED"
+}

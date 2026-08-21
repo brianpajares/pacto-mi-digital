@@ -1,0 +1,16 @@
+{
+  "name": "PACTO-MI Digital",
+  "short_name": "PACTO-MI",
+  "description": "Conocimiento que conecta. Comunidad que actua. Impacto que se demuestra.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f3ec",
+  "theme_color": "#7a171b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
