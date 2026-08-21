@@ -153,7 +153,7 @@ Las reglas que condicionan el producto están en
 | [`docs/OPERACION.md`](docs/OPERACION.md) | Modelo operativo, flujo editorial y sostenibilidad |
 | [`docs/TRAZABILIDAD.md`](docs/TRAZABILIDAD.md) | Requisito del PRD → dónde está implementado |
 | [`docs/QA.md`](docs/QA.md) | Verificaciones automáticas y pruebas manuales |
-| [`docs/DRIVE.md`](docs/DRIVE.md) | Estructura del Drive de trabajo y regla de publicación |
+| [`docs/DRIVE.md`](docs/DRIVE.md) | Estructura del [Drive de trabajo](https://drive.google.com/drive/folders/1HfaMhQt_0QjvTD7R8xJGzTEW-Si8_edd) y regla de publicación |
 
 ---
 
