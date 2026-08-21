@@ -5,7 +5,7 @@
   "description": "PACTO-MI Digital - Plataforma de conocimiento, comunidad e impacto contra la mineria ilegal.",
   "scripts": {
     "dev": "vercel dev",
-    "build": "node scripts/validate-static.js",
+    "build": "node scripts/build-static.js",
     "start": "node scripts/serve-static.js"
   },
   "keywords": [
