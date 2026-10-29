@@ -1,5 +1,5 @@
 import { html } from "../lib/html.mjs";
-import { pageHero, sectionHead, badge, callout, statCard } from "../lib/components.mjs";
+import { pageHero, sectionHead, badge, callout, statCard, figure } from "../lib/components.mjs";
 import { cycle, sessions, SESSION_STATUS, talkMetadata, talkCount } from "../content/talks.mjs";
 
 const body = html`
@@ -23,7 +23,9 @@ const body = html`
     <div class="session-list">
       ${sessions.map(
         (s) => html`
-          <article class="session" id="sesion-${s.n}">
+          <article class="session ${s.flyer ? "has-flyer" : ""}" id="sesion-${s.n}">
+            ${s.flyer ? figure(s.flyer, { className: "session-flyer", caption: false, zoom: true }) : ""}
+            <div class="session-main">
             <header class="session-head">
               <p class="session-n">Sesión ${String(s.n).padStart(2, "0")}</p>
               <p class="session-when">${s.dateLabel} · ${s.time}</p>
@@ -48,6 +50,7 @@ const body = html`
                 `
               )}
             </ul>
+            </div>
           </article>
         `
       )}

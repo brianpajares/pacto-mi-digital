@@ -1,8 +1,32 @@
 import { html } from "../lib/html.mjs";
-import { pageHero, sectionHead, badge, callout } from "../lib/components.mjs";
+import { pageHero, sectionHead, badge, callout, figure, gallery } from "../lib/components.mjs";
 import { events, EVENT_STATUS } from "../content/events.mjs";
 import { cajamarcaOrgs, cajamarcaUniversities } from "../content/partners.mjs";
 import { site } from "../content/site.mjs";
+
+const mdd = events.find((e) => e.id === "madre-de-dios");
+
+function madreDeDios() {
+  return html`
+    <section class="section shell" aria-labelledby="mdd-imagenes">
+      ${sectionHead({
+        eyebrow: "Madre de Dios",
+        title: "La jornada en imágenes",
+        lead:
+          "PACTO-MI estuvo presente en el V Foro Internacional FIDAS 2026, en el Auditorio Central de la UNAMAD. Publicamos una selección de fotografías de ponentes, autoridades y escenario; por respeto a la privacidad de los menores presentes, el público escolar no aparece en primer plano.",
+        id: "mdd-imagenes",
+      })}
+      ${figure(mdd.hero, { className: "figure-wide" })}
+      ${gallery(mdd.gallery)}
+      <div class="pillars">
+        <h3>Los cuatro ejes de PACTO-MI en el banner del foro</h3>
+        <ul class="pill-list">
+          ${mdd.pillars.map((p) => html`<li>${p}</li>`)}
+        </ul>
+      </div>
+    </section>
+  `;
+}
 
 const body = html`
   ${pageHero({
@@ -35,6 +59,11 @@ const body = html`
               ${e.method
                 ? html`<p class="event-method"><strong>Metodología:</strong> ${e.method}</p>`
                 : ""}
+              ${e.facts
+                ? html`<dl class="event-facts">
+                    ${e.facts.map(([k, v]) => html`<div><dt>${k}</dt><dd>${v}</dd></div>`)}
+                  </dl>`
+                : ""}
               ${e.attendance
                 ? html`<p class="event-attendance">
                     <strong>${e.attendance}</strong> participantes registrados
@@ -48,6 +77,8 @@ const body = html`
       )}
     </div>
   </section>
+
+  ${madreDeDios()}
 
   <section class="band" aria-labelledby="quienes">
     <div class="shell">

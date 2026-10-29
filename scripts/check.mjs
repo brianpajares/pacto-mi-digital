@@ -205,6 +205,44 @@ async function checkLinks() {
   }
 }
 
+/* -- 6b. Imágenes: dimensiones, alt y sin archivos huérfanos ----------------- */
+
+async function checkImages() {
+  const pages = (await walk(out)).filter((f) => f.endsWith(".html"));
+  const used = new Set();
+
+  for (const file of pages) {
+    const rel = path.relative(out, file);
+    const html = await readFile(file, "utf8");
+    for (const m of html.matchAll(/<img\b[^>]*>/g)) {
+      const tag = m[0];
+      const src = (tag.match(/\bsrc="([^"]+)"/) || [])[1];
+      if (!src) continue;
+      if (src.startsWith("/assets/img/")) used.add(src);
+
+      if (!/\bwidth="\d+"/.test(tag) || !/\bheight="\d+"/.test(tag)) {
+        fail(`${rel}: la imagen ${src} no declara width y height (provoca saltos de diseño).`);
+      }
+      const alt = (tag.match(/\balt="([^"]*)"/) || [])[1] ?? "";
+      if (alt.trim().length < 20) {
+        fail(`${rel}: la imagen ${src} tiene un alt demasiado corto para describir la escena.`);
+      }
+      if (src.startsWith("/") && !existsSync(path.join(out, src))) {
+        fail(`${rel}: la imagen ${src} no existe en el despliegue.`);
+      }
+    }
+  }
+
+  const dir = path.join(out, "assets", "img");
+  if (existsSync(dir)) {
+    for (const file of await readdir(dir)) {
+      if (!used.has(`/assets/img/${file}`)) {
+        fail(`assets/img/${file}: ninguna página usa esta imagen; ocupa espacio sin aportar nada.`);
+      }
+    }
+  }
+}
+
 /* -- 7. Los artefactos de despliegue existen ------------------------------ */
 
 async function checkArtifacts() {
@@ -281,6 +319,7 @@ await checkMeta();
 await checkAccents();
 await checkA11y();
 await checkLinks();
+await checkImages();
 await checkArtifacts();
 await checkWeight();
 

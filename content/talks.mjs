@@ -28,6 +28,7 @@ export const sessions = [
     date: "2026-03-05",
     dateLabel: "5 de marzo de 2026",
     time: "7:00 p. m.",
+    flyer: "flyer-sesion-1",
     title: "Visión introductoria sobre la minería ilegal en el Perú",
     objective:
       "Establecer un marco conceptual común para todo el ciclo: actores, zonas de mayor incidencia, impactos socioambientales y desafíos para la formalización y el control.",
@@ -67,6 +68,7 @@ export const sessions = [
     date: "2026-03-30",
     dateLabel: "30 de marzo de 2026",
     time: "8:00 p. m.",
+    flyer: "flyer-sesion-2",
     title: "Minería ilegal, sostenibilidad y liderazgo juvenil desde una mirada multidisciplinaria",
     objective:
       "Fortalecer el pensamiento crítico y promover un liderazgo informado y comprometido frente a la minería ilegal.",
@@ -142,6 +144,7 @@ export const sessions = [
     // Hasta que el equipo confirme cuál es, no se publica un día exacto.
     dateLabel: "Mayo de 2026",
     time: "7:00 p. m.",
+    flyer: "flyer-sesion-4",
     title: "Minería ilegal: ¿qué se está haciendo para combatirla?",
     objective:
       "Dos miradas sobre cómo se combate la minería ilegal y el rol clave de los líderes juveniles en esta labor.",

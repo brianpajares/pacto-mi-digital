@@ -1,12 +1,26 @@
 import { html, raw } from "../lib/html.mjs";
 import { site, cycle } from "../content/site.mjs";
-import { statCard, sectionHead, badge, callout } from "../lib/components.mjs";
+import { statCard, sectionHead, badge, callout, figure } from "../lib/components.mjs";
+import { sessions } from "../content/talks.mjs";
 import { modules } from "../content/modules.mjs";
 import { events, EVENT_STATUS } from "../content/events.mjs";
 import { cajamarcaOrgs, institutional } from "../content/partners.mjs";
 import { factValue } from "../content/facts.mjs";
 
 const pastEvent = events.find((e) => e.id === "cajamarca-2025");
+
+/** Línea de tiempo armada con los mismos datos que las páginas de detalle. */
+const timeline = [
+  { sort: "2025-11-19", when: pastEvent.dateLabel, title: pastEvent.title, place: "Cajamarca · presencial", href: "/eventos#cajamarca-2025" },
+  ...sessions.map((s) => ({
+    sort: s.date ?? "2026-05",
+    when: s.dateLabel,
+    title: `Sesión ${s.n}: ${s.title}`,
+    place: "Virtual",
+    href: `/expert-talks#sesion-${s.n}`,
+  })),
+  { sort: "2026-06", when: "Junio de 2026", title: "PACTO-MI en el V Foro Internacional FIDAS 2026", place: "Puerto Maldonado · presencial", href: "/eventos#madre-de-dios" },
+].sort((a, b) => a.sort.localeCompare(b.sort));
 const secondStage = events.find((e) => e.id === "madre-de-dios");
 
 const body = html`
@@ -61,6 +75,35 @@ const body = html`
         ${statCard("participantes-cajamarca", { emphasis: true })} ${statCard("organizaciones")}
         ${statCard("sesiones-virtuales")} ${statCard("presupuesto")}
       </div>
+    </div>
+  </section>
+
+  <section class="band trayectoria" aria-labelledby="trayectoria-titulo">
+    <div class="shell">
+    ${sectionHead({
+      eyebrow: "Trayectoria",
+      title: "Lo que ya se hizo",
+      lead: "Del primer taller en Cajamarca a la jornada en Madre de Dios: seis hitos con su fecha, su modalidad y su detalle.",
+      id: "trayectoria-titulo",
+    })}
+    <div class="trayectoria-grid">
+      ${figure("mdd-ponente-banner", { eager: false })}
+      <ol class="timeline">
+        ${timeline.map(
+          (t) => html`
+            <li>
+              <p class="timeline-when">${t.when}</p>
+              <h3><a href="${t.href}">${t.title}</a></h3>
+              <p class="timeline-place">${t.place}</p>
+            </li>
+          `
+        )}
+      </ol>
+    </div>
+    <p class="section-cta">
+      <a class="btn btn-ghost" href="/eventos">Ver los eventos</a>
+      <a class="btn btn-ghost" href="/expert-talks">Ver las sesiones virtuales</a>
+    </p>
     </div>
   </section>
 

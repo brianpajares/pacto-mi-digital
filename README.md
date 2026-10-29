@@ -36,12 +36,12 @@ Trece páginas generadas estáticamente:
 
 | Ruta | Contenido |
 |---|---|
-| `/` | Portada: propósito, cifras verificables, rutas de participación y tracción real |
+| `/` | Portada: propósito, cifras verificables, trayectoria con línea de tiempo y rutas de participación |
 | `/conoce` | Formal vs. informal vs. ilegal, impactos, vínculo criminal, territorios, mitos |
 | `/aprende` | PACTO-MI Academy: los seis módulos con objetivos de aprendizaje y evaluación |
 | `/recursos` | Knowledge Hub con búsqueda, filtros y estado editorial de cada recurso |
-| `/expert-talks` | Las cuatro sesiones virtuales de 2026 con sus 12 ponencias, ponentes y temas |
-| `/eventos` | Taller de Cajamarca (19/11/2025) y actividad en Madre de Dios (UNAMAD, FIDAS 2026) |
+| `/expert-talks` | Las cuatro sesiones virtuales de 2026 con flyer, ponentes, cargos y temas |
+| `/eventos` | Taller de Cajamarca (19/11/2025) y la jornada en Madre de Dios (UNAMAD, FIDAS 2026), con galería |
 | `/actua` | Action Lab: generador del Action Canvas, íntegramente en el navegador |
 | `/impacto` | Dashboard público: metas vs. avance, con los huecos declarados |
 | `/nosotros` | Equipo ejecutor, aliados y respaldo institucional |
@@ -79,6 +79,7 @@ content/    Datos del sitio. Es la fuente de verdad y no contiene marcado.
   modules.mjs     Los seis módulos de la Academy
   resources.mjs   Catálogo del Knowledge Hub con estado editorial
   talks.mjs       Ciclo de Expert Talks
+  media.mjs       Catálogo de imágenes publicadas, con alt y dimensiones
   events.mjs      Eventos del proyecto
   team.mjs        Equipo ejecutor
   partners.mjs    Aliados y respaldo institucional
@@ -125,7 +126,9 @@ a Next.js + Supabase cuando el backend sea necesario. La ruta está en
 6. **Enlaces internos** — todo `href` interno debe resolver a un archivo generado.
 7. **Artefactos de despliegue** — iconos, manifest, service worker y sitemap.
 8. **Presupuesto de peso** — el despliegue no puede superar 5 MB en total ni 800 KB por
-   archivo, y rechaza ZIP, video y audio. Hoy pesa 0,32 MB.
+   archivo, y rechaza ZIP, video y audio. Hoy pesa 1,65 MB.
+9. **Imágenes** — cada `<img>` declara `width`, `height` y un `alt` descriptivo, y no puede
+   quedar en `assets/img/` ningún archivo que ninguna página use.
 
 Contraste WCAG 2.2 AA verificado en las 13 páginas, en tema claro y oscuro.
 

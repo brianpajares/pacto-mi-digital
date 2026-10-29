@@ -23,14 +23,38 @@ export const events = [
     city: "Puerto Maldonado",
     region: "Madre de Dios",
     date: null,
-    dateLabel: "Fecha exacta por confirmar",
+    // El banner del foro indica jornadas hasta el 19 de junio de 2026; el
+    // primer dígito del día de inicio queda cortado en las fotografías, así
+    // que solo se publica el mes.
+    dateLabel: "Junio de 2026",
     status: "realizado",
     attendance: null,
-    venue: "Universidad Nacional Amazónica de Madre de Dios (UNAMAD), Facultad de Ciencias Empresariales",
+    venue: "Auditorio Central Margarita Soto Benavente, Universidad Nacional Amazónica de Madre de Dios (UNAMAD)",
     summary:
-      "Segunda etapa presencial del proyecto, en Madre de Dios. Se desarrolló en la UNAMAD durante el V Foro Internacional para el Desarrollo Amazónico Sustentable por los Objetivos de Desarrollo Sostenible (FIDAS 2026), bajo el lema «Minería sostenible y desarrollo empresarial en Madre de Dios», con una jornada de 9:00 a. m. a 1:00 p. m. dirigida a estudiantes, docentes, comunidad y público en general.",
+      "Segunda etapa presencial del proyecto, en Madre de Dios. PACTO-MI estuvo presente en el V Foro Internacional para el Desarrollo Amazónico Sustentable por los Objetivos de Desarrollo Sostenible (FIDAS 2026), de la Facultad de Ciencias Empresariales de la UNAMAD, bajo el lema «Minería sostenible y desarrollo empresarial en Madre de Dios».",
     method: null,
     banner: "Juventud, minería, comunidad y defensa del territorio",
+    facts: [
+      ["Horario", "9:00 a. m. a 1:00 p. m."],
+      ["Modalidad", "Presencial"],
+      ["Ponentes", "Nacionales e internacionales"],
+      ["Dirigido a", "Estudiantes, docentes, comunidad y público en general"],
+    ],
+    pillars: [
+      "Diálogo y participación",
+      "Desarrollo sostenible",
+      "Responsabilidad y transparencia",
+      "Defensoría del territorio",
+    ],
+    gallery: [
+      "mdd-ponente-banner",
+      "mdd-atril",
+      "mdd-ponencia",
+      "mdd-panel",
+      "mdd-estrado",
+      "mdd-escenario",
+    ],
+    hero: "mdd-auditorio",
   },
 ];
 
