@@ -27,6 +27,11 @@ export const SOURCES = {
     label: "Presentación institucional PACTO-MI — AEIF 2026",
     note: "Reporte de avance y estrategia para la etapa de Madre de Dios.",
   },
+  SESIONES26: {
+    id: "SESIONES26",
+    label: "Agendas y flyers oficiales de las sesiones virtuales PACTO-MI 2026",
+    note: "Cuatro agendas en PDF y los flyers de cada ponente del ciclo de ponencias virtuales, de marzo a mayo de 2026.",
+  },
   PRD: {
     id: "PRD",
     label: "PRD PACTO-MI Digital v1.0 — agosto 2026",
@@ -163,6 +168,25 @@ export const facts = [
     detail: "Cajamarca y Madre de Dios, con arquitectura preparada para más regiones.",
   },
 
+  {
+    id: "sesiones-virtuales",
+    label: "Sesiones virtuales del ciclo Expert Talks",
+    value: 4,
+    kind: "real",
+    source: "SESIONES26",
+    asOf: "2026-05",
+    detail: "Sesiones con agenda y flyer oficiales entre marzo y mayo de 2026. Aún no hay registro de asistencia ni grabaciones publicadas.",
+  },
+  {
+    id: "ponencias",
+    label: "Ponencias del ciclo virtual",
+    value: 12,
+    kind: "real",
+    source: "SESIONES26",
+    asOf: "2026-05",
+    detail: "Según las cuatro agendas. César Ipenza participó en dos sesiones, así que son 11 ponentes distintos.",
+  },
+
   // --- Aún no medido: se publica el hueco, no un número ------------------
   {
     id: "planes-registrados",
@@ -225,7 +249,7 @@ export function factValue(id) {
 /** Metas del dashboard público, emparejando avance real contra compromiso. */
 export const progress = [
   { meta: "beneficiarios-directos", real: "participantes-cajamarca", label: "Personas formadas" },
-  { meta: "expert-talks", real: null, label: "Expert Talks realizadas" },
+  { meta: "expert-talks", real: "sesiones-virtuales", label: "Expert Talks realizadas" },
   { meta: "toolkits", real: null, label: "Toolkits distribuidos" },
   { meta: "planes-accionables", real: "planes-registrados", label: "Planes de acción" },
 ];

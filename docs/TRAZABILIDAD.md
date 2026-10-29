@@ -10,7 +10,7 @@ esta tabla es su equivalente técnico.
 | §8.2 Pestaña «Conoce» | `pages/conoce.mjs` | Implementado |
 | §8.3 Knowledge Hub | `pages/recursos.mjs`, `content/resources.mjs` | Implementado; las descargas dependen del estado editorial de cada recurso |
 | §8.4 PACTO-MI Academy | `pages/aprende.mjs`, `content/modules.mjs` | Estructura y objetivos publicados; falta contenido audiovisual y evaluaciones |
-| §8.5 Expert Talks | `pages/expert-talks.mjs`, `content/talks.mjs` | Ciclo y ponentes publicados; fichas y grabaciones pendientes |
+| §8.5 Expert Talks | `pages/expert-talks.mjs`, `content/talks.mjs` | Cuatro sesiones y 12 ponencias publicadas desde agendas y flyers; grabaciones y fichas completas pendientes |
 | §8.6 Red de líderes | `pages/privacidad.mjs` (política) | Pendiente: requiere autenticación y consentimiento opt-in |
 | §8.7 Comunidad moderada | `docs/PRIVACIDAD_Y_SEGURIDAD.md` | Pendiente: requiere moderación y auditoría |
 | §8.8 Action Lab | `pages/actua.mjs`, `assets/app.js` | Implementado en cliente; sin persistencia |

@@ -19,17 +19,18 @@ export const events = [
   },
   {
     id: "madre-de-dios",
-    title: "Sesión PACTO-MI Madre de Dios",
+    title: "PACTO-MI en el V Foro Internacional FIDAS 2026",
     city: "Puerto Maldonado",
     region: "Madre de Dios",
     date: null,
-    dateLabel: "Fecha por confirmar",
-    status: "en-planificacion",
+    dateLabel: "Fecha exacta por confirmar",
+    status: "realizado",
     attendance: null,
+    venue: "Universidad Nacional Amazónica de Madre de Dios (UNAMAD), Facultad de Ciencias Empresariales",
     summary:
-      "Réplica de la experiencia de Cajamarca adaptada al contexto amazónico, convocando a líderes comunitarios, jóvenes, sociedad civil y representantes de los sectores público y privado.",
-    method:
-      "Aplica las lecciones aprendidas en Cajamarca: metodologías participativas y experienciales, paneles multiactor y dinámicas basadas en dilemas reales.",
+      "Segunda etapa presencial del proyecto, en Madre de Dios. Se desarrolló en la UNAMAD durante el V Foro Internacional para el Desarrollo Amazónico Sustentable por los Objetivos de Desarrollo Sostenible (FIDAS 2026), bajo el lema «Minería sostenible y desarrollo empresarial en Madre de Dios», con una jornada de 9:00 a. m. a 1:00 p. m. dirigida a estudiantes, docentes, comunidad y público en general.",
+    method: null,
+    banner: "Juventud, minería, comunidad y defensa del territorio",
   },
 ];
 

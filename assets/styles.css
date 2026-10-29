@@ -1012,6 +1012,50 @@ ul, ol { margin: 0; padding: 0; }
 .talk-meta dt { font-size: 0.82rem; font-weight: 700; color: var(--ink-3); }
 .talk-meta dd { margin: 0; font-size: 0.85rem; text-align: right; }
 
+/* ------------------------------------------------- sesiones y ponentes --- */
+
+.session-list { display: grid; gap: 1.5rem; margin-bottom: 2rem; }
+.session {
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: 100px;
+}
+.session-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin-bottom: 0.9rem; }
+.session-n {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.session-when { margin: 0; font-weight: 800; color: var(--link); }
+.session h3 { margin-bottom: 0.6rem; }
+.session-objective { margin-bottom: 1.25rem; font-size: 0.95rem; color: var(--ink-3); }
+
+.speaker-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+.speaker {
+  padding: 1.1rem 1.2rem;
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.speaker-name { margin: 0 0 0.2rem; font-weight: 800; }
+.speaker-role { margin: 0 0 0.6rem; font-size: 0.85rem; color: var(--ink-3); line-height: 1.45; }
+.speaker-talk { margin: 0 0 0.5rem; font-size: 0.92rem; font-weight: 600; color: var(--ink-2); }
+.speaker-topics { margin: 0; padding-left: 1.1rem; font-size: 0.86rem; color: var(--ink-3); }
+.speaker-topics li { margin-bottom: 0.25rem; }
+
 /* -------------------------------------------------------------- eventos --- */
 
 .event-list { display: grid; gap: 1.5rem; }
@@ -1031,7 +1075,7 @@ ul, ol { margin: 0; padding: 0; }
 .event-date-label { font-size: 1.05rem; font-weight: 800; color: var(--link); }
 .event h3 { margin-bottom: 0.3rem; }
 .event-place { font-size: 0.9rem; font-weight: 600; color: var(--ink-3); margin-bottom: 0.9rem; }
-.event-method { font-size: 0.92rem; color: var(--ink-2); }
+.event-method, .event-venue { font-size: 0.92rem; color: var(--ink-2); }
 .event-attendance { margin: 0.75rem 0 0; font-size: 0.95rem; }
 .event-attendance strong { font-size: 1.4rem; color: var(--link); }
 .event-attendance-pending { font-style: italic; color: var(--ink-3); font-size: 0.88rem; }
@@ -1233,6 +1277,14 @@ ul, ol { margin: 0; padding: 0; }
   padding-bottom: 3rem;
 }
 .footer-brand .brand-mark { width: 42px; height: 42px; color: var(--on-dark); margin-bottom: 1rem; }
+.footer-descriptor {
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
 .footer-claim {
   font-size: 1.1rem;
   font-weight: 700;

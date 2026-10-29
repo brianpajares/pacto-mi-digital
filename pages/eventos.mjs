@@ -9,8 +9,8 @@ const body = html`
     eyebrow: "Eventos",
     title: "Talleres presenciales y sesiones del proyecto",
     lead:
-      "Cada evento se publica con su fecha, su convocatoria y, cuando ya ocurrió, con la asistencia efectivamente registrada.",
-    meta: ["Cajamarca y Madre de Dios", "Metodología participativa", "Convocatoria abierta"],
+      "Cada evento se publica con su fecha, su sede y, cuando ya ocurrió, con la asistencia efectivamente registrada. Si una cifra o una fecha no está confirmada, se dice.",
+    meta: ["Cajamarca y Madre de Dios", "Dos etapas presenciales", "Ciclo de sesiones virtuales"],
   })}
 
   <section class="section shell" aria-labelledby="agenda">
@@ -27,8 +27,14 @@ const body = html`
             <div class="event-body">
               <h3>${e.title}</h3>
               <p class="event-place">${e.city}, ${e.region}</p>
+              ${e.venue ? html`<p class="event-venue"><strong>Sede:</strong> ${e.venue}</p>` : ""}
               <p>${e.summary}</p>
-              <p class="event-method"><strong>Metodología:</strong> ${e.method}</p>
+              ${e.banner
+                ? html`<p class="event-method"><strong>Lema de PACTO-MI en el evento:</strong> «${e.banner}»</p>`
+                : ""}
+              ${e.method
+                ? html`<p class="event-method"><strong>Metodología:</strong> ${e.method}</p>`
+                : ""}
               ${e.attendance
                 ? html`<p class="event-attendance">
                     <strong>${e.attendance}</strong> participantes registrados

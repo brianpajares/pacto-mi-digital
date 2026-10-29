@@ -7,6 +7,7 @@ export const site = {
   shortName: "PACTO-MI",
   project: "Youth Action Network Against Illegal Mining and Organized Crime",
   projectEs: "Juventud en Acción contra la Minería Ilegal y el Crimen Organizado",
+  descriptor: "Plataforma de Acción contra la Minería Ilegal",
   claim: "Empoderando jóvenes para proteger territorios y fortalecer la minería formal",
   tagline: "Conocimiento que conecta. Comunidad que actúa. Impacto que se demuestra.",
   description:

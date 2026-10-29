@@ -7,7 +7,7 @@ const featureStatus = [
   ["Portal público y narrativa institucional", "activo", "Páginas Inicio, Conoce, Nosotros y Eventos publicadas."],
   ["Knowledge Hub", "activo", "Catálogo con búsqueda, filtros y metadata editorial. Las descargas dependen del estado de cada recurso."],
   ["PACTO-MI Academy", "parcial", "Los seis módulos están publicados como estructura con objetivos. Falta el contenido audiovisual y las evaluaciones."],
-  ["Expert Talks", "parcial", "Ciclo y ponentes publicados. Faltan fichas completas y grabaciones."],
+  ["Expert Talks", "parcial", "Cuatro sesiones, 12 ponencias y sus ponentes publicados con agenda. Faltan grabaciones, fichas completas y la fecha confirmada de la 4.ª sesión."],
   ["Action Lab", "activo", "El generador de Action Canvas funciona en el navegador, sin envío de datos."],
   ["Dashboard público de impacto", "activo", "Muestra metas y avance documentado, y declara los indicadores sin medición."],
   ["Fuentes y metodología", "activo", "Cada cifra publicada con su documento de origen."],

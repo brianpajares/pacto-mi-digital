@@ -40,8 +40,8 @@ Trece páginas generadas estáticamente:
 | `/conoce` | Formal vs. informal vs. ilegal, impactos, vínculo criminal, territorios, mitos |
 | `/aprende` | PACTO-MI Academy: los seis módulos con objetivos de aprendizaje y evaluación |
 | `/recursos` | Knowledge Hub con búsqueda, filtros y estado editorial de cada recurso |
-| `/expert-talks` | Ciclo de cuatro conferencias con especialistas nacionales |
-| `/eventos` | Taller de Cajamarca (realizado) y sesión de Madre de Dios (en planificación) |
+| `/expert-talks` | Las cuatro sesiones virtuales de 2026 con sus 12 ponencias, ponentes y temas |
+| `/eventos` | Taller de Cajamarca (19/11/2025) y actividad en Madre de Dios (UNAMAD, FIDAS 2026) |
 | `/actua` | Action Lab: generador del Action Canvas, íntegramente en el navegador |
 | `/impacto` | Dashboard público: metas vs. avance, con los huecos declarados |
 | `/nosotros` | Equipo ejecutor, aliados y respaldo institucional |

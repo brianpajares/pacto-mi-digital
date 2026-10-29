@@ -6,8 +6,8 @@ import { events, EVENT_STATUS } from "../content/events.mjs";
 import { cajamarcaOrgs, institutional } from "../content/partners.mjs";
 import { factValue } from "../content/facts.mjs";
 
-const nextEvent = events.find((e) => e.status === "en-planificacion");
-const pastEvent = events.find((e) => e.status === "realizado");
+const pastEvent = events.find((e) => e.id === "cajamarca-2025");
+const secondStage = events.find((e) => e.id === "madre-de-dios");
 
 const body = html`
   <section class="hero">
@@ -59,7 +59,7 @@ const body = html`
       </div>
       <div class="stat-grid">
         ${statCard("participantes-cajamarca", { emphasis: true })} ${statCard("organizaciones")}
-        ${statCard("beneficiarios-directos")} ${statCard("presupuesto")}
+        ${statCard("sesiones-virtuales")} ${statCard("presupuesto")}
       </div>
     </div>
   </section>
@@ -163,15 +163,15 @@ const body = html`
       </p>
     </div>
     <aside class="event-next">
-      <p class="eyebrow">Próxima etapa</p>
-      <h3>${nextEvent.title}</h3>
+      <p class="eyebrow">Segunda etapa</p>
+      <h3>${secondStage.title}</h3>
       <p class="event-meta">
-        ${badge(EVENT_STATUS[nextEvent.status].label, EVENT_STATUS[nextEvent.status].tone)}
-        <span>${nextEvent.city}, ${nextEvent.region}</span>
+        ${badge(EVENT_STATUS[secondStage.status].label, EVENT_STATUS[secondStage.status].tone)}
+        <span>${secondStage.city}, ${secondStage.region}</span>
       </p>
-      <p>${nextEvent.summary}</p>
-      <p class="event-date">${nextEvent.dateLabel}</p>
-      <a class="btn btn-primary" href="/eventos#${nextEvent.id}">Detalles del evento</a>
+      <p>${secondStage.summary}</p>
+      <p class="event-date">${secondStage.dateLabel}</p>
+      <a class="btn btn-primary" href="/eventos#${secondStage.id}">Detalles del evento</a>
     </aside>
   </section>
 
