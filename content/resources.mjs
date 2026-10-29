@@ -91,7 +91,7 @@ export const resources = [
     reviewer: "Equipo PACTO-MI",
     version: "v1.0 · agosto 2026",
     availability: "publicado",
-    href: "/docs/prd/PRD_PACTOMI_Digital_v1.0.docx",
+    href: "https://github.com/brianpajares/pacto-mi-digital/blob/main/docs/prd/PRD_PACTOMI_Digital_v1.0.docx",
     tags: ["prd", "producto", "documentación"],
   },
   {

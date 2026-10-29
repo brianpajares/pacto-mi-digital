@@ -53,6 +53,6 @@ carpeta compartida.
 | Registro de fuentes primarias del proyecto | `07_Fuentes_Originales_del_Proyecto` |
 | Repositorio, despliegue y operación | `08_Codigo_Repositorio_y_Deploy` |
 
-El `.docx` original del PRD vive en `docs/prd/` dentro del repositorio y se
-descarga desde el sitio; la copia en Drive es su transcripción de texto, para
+El `.docx` original del PRD vive en `docs/prd/` dentro del repositorio (no se
+despliega en el hosting, para no gastar espacio); la copia en Drive es su transcripción de texto, para
 poder buscarla y comentarla.

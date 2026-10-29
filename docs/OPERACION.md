@@ -49,7 +49,7 @@ no una limitación temporal — el proyecto debe seguir en línea después del g
 
 ## Lista de comprobación antes de cada publicación
 
-- [ ] `npm run build` en verde, con las siete verificaciones superadas.
+- [ ] `npm run build` en verde, con las ocho verificaciones superadas.
 - [ ] Toda cifra nueva declara fuente y vigencia en `content/facts.mjs`.
 - [ ] Los textos sensibles pasaron revisión técnica y de comunicación.
 - [ ] Ninguna fotografía se publica sin consentimiento de imagen registrado.

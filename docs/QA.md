@@ -13,7 +13,8 @@ lo que se despliega. Cualquier fallo detiene la publicación.
 | 4 | Metadatos por página | Falta de `title`, `description`, canónico, Open Graph, JSON-LD válido, `lang`, `<main>`, enlace de salto o más de un `<h1>` |
 | 5 | Accesibilidad básica | Imágenes sin `alt`, enlaces sin texto, campos sin etiqueta |
 | 6 | Enlaces internos | Un `href` interno que no resuelve a un archivo generado |
-| 7 | Artefactos de despliegue | Falta de iconos, manifest, service worker, sitemap o del PRD |
+| 7 | Artefactos de despliegue | Falta de iconos, manifest, service worker o sitemap |
+| 8 | Presupuesto de peso | Despliegue de más de 5 MB, archivos de más de 800 KB, o ZIP, video y audio |
 
 Las verificaciones se probaron introduciendo fallos deliberados (una palabra sin tilde,
 un enlace inexistente y una cifra sin fuente) para confirmar que efectivamente detienen

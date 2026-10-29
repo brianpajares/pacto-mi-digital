@@ -123,7 +123,9 @@ a Next.js + Supabase cuando el backend sea necesario. La ruta está en
 5. **Accesibilidad básica** — `alt` en imágenes, etiquetas accesibles en SVG y campos,
    enlaces con texto.
 6. **Enlaces internos** — todo `href` interno debe resolver a un archivo generado.
-7. **Artefactos de despliegue** — iconos, manifest, service worker, sitemap y el PRD.
+7. **Artefactos de despliegue** — iconos, manifest, service worker y sitemap.
+8. **Presupuesto de peso** — el despliegue no puede superar 5 MB en total ni 800 KB por
+   archivo, y rechaza ZIP, video y audio. Hoy pesa 0,32 MB.
 
 Contraste WCAG 2.2 AA verificado en las 13 páginas, en tema claro y oscuro.
 
@@ -146,7 +148,7 @@ Las reglas que condicionan el producto están en
 
 | Documento | Contenido |
 |---|---|
-| [`docs/prd/PRD_PACTOMI_Digital_v1.0.docx`](docs/prd/) | PRD original, adjunto y servido desde el sitio |
+| [`docs/prd/PRD_PACTOMI_Digital_v1.0.docx`](docs/prd/) | PRD original (14 MB). Vive solo en el repositorio: no se despliega, para no gastar espacio en el hosting |
 | [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) | Estado actual y ruta hacia el backend completo |
 | [`docs/CONTENIDO.md`](docs/CONTENIDO.md) | Cómo editar contenido y publicar una cifra nueva |
 | [`docs/PRIVACIDAD_Y_SEGURIDAD.md`](docs/PRIVACIDAD_Y_SEGURIDAD.md) | Reglas no negociables, roles y moderación |

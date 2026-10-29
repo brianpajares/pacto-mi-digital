@@ -222,7 +222,6 @@ async function checkArtifacts() {
     "assets/icons/icon-512.png",
     "assets/icons/maskable-512.png",
     "assets/icons/og.png",
-    "docs/prd/PRD_PACTOMI_Digital_v1.0.docx",
   ];
   for (const file of required) {
     if (!existsSync(path.join(out, file))) fail(`Falta el artefacto de despliegue: ${file}`);
@@ -237,6 +236,43 @@ async function checkArtifacts() {
   }
 }
 
+/* -- 8. Presupuesto de peso ------------------------------------------------ */
+
+/**
+ * El sitio es estático y debe seguir cabiendo con holgura en el plan gratuito
+ * de cualquier hosting. Hoy pesa unos 0,3 MB; el presupuesto deja margen para
+ * fotografías optimizadas pero impide que un ZIP, un video o un documento
+ * pesado llegue al despliegue por accidente.
+ *
+ * Los materiales pesados viven en Drive o en una plataforma de video y el
+ * sitio solo los enlaza.
+ */
+const BUDGET_TOTAL = 5 * 1024 * 1024; // 5 MB en total
+const BUDGET_FILE = 800 * 1024; // 800 KB por archivo
+const HEAVY_EXT = /\.(zip|rar|7z|tar|gz|mp4|mov|avi|mkv|webm|wav|mp3|psd|ai|iso)$/i;
+
+async function checkWeight() {
+  const files = await walk(out);
+  let total = 0;
+  const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
+
+  for (const file of files) {
+    const { size } = await stat(file);
+    total += size;
+    const rel = path.relative(out, file);
+    if (HEAVY_EXT.test(rel)) {
+      fail(`${rel}: tipo de archivo pesado. Los ZIP, videos y audio van en Drive o en una plataforma de video, y el sitio los enlaza.`);
+    } else if (size > BUDGET_FILE) {
+      fail(`${rel}: pesa ${kb(size)} y el límite por archivo es ${kb(BUDGET_FILE)}. Optimízalo (imágenes en WebP, unos 150 KB como máximo).`);
+    }
+  }
+
+  if (total > BUDGET_TOTAL) {
+    fail(`El despliegue pesa ${(total / 1048576).toFixed(1)} MB y el presupuesto total es ${(BUDGET_TOTAL / 1048576).toFixed(0)} MB.`);
+  }
+  console.log(`  Peso del despliegue: ${(total / 1048576).toFixed(2)} MB de ${(BUDGET_TOTAL / 1048576).toFixed(0)} MB (${files.length} archivos).`);
+}
+
 /* -- ejecución ------------------------------------------------------------ */
 
 checkFacts();
@@ -246,6 +282,7 @@ await checkAccents();
 await checkA11y();
 await checkLinks();
 await checkArtifacts();
+await checkWeight();
 
 for (const w of warnings) console.warn(`⚠ ${w}`);
 

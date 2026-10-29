@@ -93,7 +93,9 @@ async function main() {
     await writeFile(target, layout(page), "utf8");
   }
 
-  for (const entry of ["assets", "docs", "favicon.svg", "sw.js"]) {
+  // `docs/` NO se despliega: vive en el repositorio. El PRD en .docx pesa 14 MB,
+  // casi todo el peso del sitio, y no hace falta servirlo desde el hosting.
+  for (const entry of ["assets", "favicon.svg", "sw.js"]) {
     const from = path.join(root, entry);
     if (existsSync(from)) await cp(from, path.join(out, entry), { recursive: true });
   }
