@@ -102,9 +102,16 @@ Qué va dónde:
 Para incorporar una fotografía:
 
 1. Elegir las pocas que cuentan la historia (unas 6 a 12 por evento, no el álbum completo).
-2. Confirmar el **consentimiento de imagen** de las personas que aparecen.
-3. Convertir a WebP, con el lado mayor de 1600 px como máximo y unos 150 KB por imagen.
-4. Guardarla en `assets/img/` y referenciarla con `alt` descriptivo: el build falla si
-   una imagen no lo tiene.
+2. **Descartar toda imagen donde aparezcan menores de edad identificables**, y confirmar
+   el consentimiento de imagen de las personas adultas que aparecen. Si una foto es útil
+   pero tiene público en primer plano, se recorta; si el recorte no basta, no se publica.
+3. Convertir a WebP con ImageMagick (`convert foto.jpg -auto-orient -strip -resize 1600x
+   -quality 76 -define webp:method=6 foto.webp`): unos 150 KB por imagen.
+4. Guardarla en `assets/img/` y registrarla en `content/media.mjs` con sus dimensiones
+   reales, un `alt` que describa la escena **sin nombrar personas** y un pie.
+5. Mostrarla con `figure("clave")` o `gallery([...])`.
+
+`npm run check` falla si una imagen no declara dimensiones, si su `alt` es muy corto o si
+queda un archivo en `assets/img/` que ninguna página usa.
 
 Con 12 fotografías de 150 KB, una galería suma menos de 2 MB.
