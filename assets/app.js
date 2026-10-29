@@ -1,215 +1,241 @@
-const resources = [
-  {
-    title: "Toolkit digital PACTO-MI",
-    type: "Toolkit",
-    region: "Nacional",
-    summary: "Guia base para talleres, replicas y acciones de advocacy juvenil.",
-    source: "AEIF / PACTO-MI",
-    version: "v1.0",
-    tags: ["toolkit", "replica", "accion"]
-  },
-  {
-    title: "Mineria ilegal: impactos y rutas de prevencion",
-    type: "Infografia",
-    region: "Cajamarca",
-    summary: "Resumen visual para explicar impactos ambientales, sociales y economicos.",
-    source: "Equipo editorial",
-    version: "revision tecnica",
-    tags: ["impactos", "conoce"]
-  },
-  {
-    title: "Expert Talk: crimen organizado y territorio",
-    type: "Video",
-    region: "Madre de Dios",
-    summary: "Sesion catalogada con ponente, fecha, preguntas clave y materiales relacionados.",
-    source: "Expert Talks 2026",
-    version: "grabacion",
-    tags: ["video", "expert-talk"]
-  },
-  {
-    title: "Guia de plan de accion local",
-    type: "Guia",
-    region: "Nacional",
-    summary: "Plantilla practica para objetivos, actores, indicadores, riesgos y evidencias.",
-    source: "Action Lab",
-    version: "v1.0",
-    tags: ["action-lab", "canvas"]
-  },
-  {
-    title: "Mitos y realidades sobre formalizacion",
-    type: "Infografia",
-    region: "Cajamarca",
-    summary: "Contenido educativo para diferenciar conceptos sin exponer casos sensibles.",
-    source: "Revision tematica pendiente",
-    version: "borrador",
-    tags: ["formalizacion", "faq"]
-  },
-  {
-    title: "Ficha de registro de replica",
-    type: "Guia",
-    region: "Nacional",
-    summary: "Campos minimos para reportar actividad, alcance, evidencia y validacion M&E.",
-    source: "M&E",
-    version: "v1.0",
-    tags: ["replica", "indicadores"]
+/**
+ * PACTO-MI Digital — interacciones del sitio.
+ * Todo se ejecuta en el navegador: no hay peticiones a servidores ni
+ * seguimiento de ningún tipo.
+ */
+(() => {
+  "use strict";
+
+  /* ------------------------------------------------------------ cabecera */
+
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const onScroll = () => {
+      header.dataset.elevated = window.scrollY > 8 ? "true" : "false";
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
-];
 
-const modules = [
-  ["Introduccion a la mineria ilegal en el Peru", "Video corto, mapa conceptual, caso y quiz de base.", 76],
-  ["Vinculos con crimen organizado", "Storytelling guiado, esquema de relaciones y reflexion segura.", 52],
-  ["Consecuencias ambientales y socioeconomicas", "Infografias, datos, caso territorial y actividad aplicada.", 61],
-  ["Comunicacion estrategica y advocacy digital", "Plantillas, simulacion de campana y publicacion modelo.", 45],
-  ["Politica publica y mecanismos legales", "Guia navegable, glosario y caso practico.", 38],
-  ["Planes de accion local", "Wizard, pitch, rubrica, evidencia y seguimiento.", 68]
-];
+  const navToggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
 
-const impactData = {
-  Todas: [
-    ["Miembros capacitados", 220, 300],
-    ["Organizaciones juveniles", 11, 20],
-    ["Planes de accion", 74, 270],
-    ["Recursos descargados", 418, 700]
-  ],
-  Cajamarca: [
-    ["Miembros capacitados", 220, 225],
-    ["Organizaciones juveniles", 11, 14],
-    ["Planes de accion", 66, 200],
-    ["Recursos descargados", 286, 450]
-  ],
-  "Madre de Dios": [
-    ["Miembros capacitados", 0, 75],
-    ["Organizaciones juveniles", 0, 6],
-    ["Planes de accion", 8, 70],
-    ["Recursos descargados", 132, 250]
-  ]
-};
+  if (navToggle && nav) {
+    const setOpen = (open) => {
+      nav.dataset.open = String(open);
+      navToggle.setAttribute("aria-expanded", String(open));
+    };
 
-const header = document.querySelector(".header");
-const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".nav");
-const resourceGrid = document.querySelector("#resource-grid");
-const resourceSearch = document.querySelector("#resource-search");
-const moduleList = document.querySelector("#module-list");
-const regionSelect = document.querySelector("#region-select");
-const dashboard = document.querySelector("#impact-dashboard");
-const actionForm = document.querySelector("#action-form");
-const canvasOutput = document.querySelector("#canvas-output");
+    navToggle.addEventListener("click", () => {
+      setOpen(navToggle.getAttribute("aria-expanded") !== "true");
+    });
 
-window.addEventListener("scroll", () => {
-  header.dataset.elevated = window.scrollY > 8 ? "true" : "false";
-});
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setOpen(false);
+    });
 
-navToggle.addEventListener("click", () => {
-  const open = nav.dataset.open !== "true";
-  nav.dataset.open = String(open);
-  navToggle.setAttribute("aria-expanded", String(open));
-});
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        navToggle.focus();
+      }
+    });
 
-nav.addEventListener("click", (event) => {
-  if (event.target.matches("a")) {
-    nav.dataset.open = "false";
-    navToggle.setAttribute("aria-expanded", "false");
+    // Al volver a escritorio, el menú desplegable deja de aplicar.
+    const desktop = window.matchMedia("(min-width: 1041px)");
+    desktop.addEventListener("change", (e) => {
+      if (e.matches) setOpen(false);
+    });
   }
-});
 
-function renderResources(filter = "Todos", query = "") {
-  const normalized = query.trim().toLowerCase();
-  const filtered = resources.filter((resource) => {
-    const matchesType = filter === "Todos" || resource.type === filter;
-    const searchable = `${resource.title} ${resource.summary} ${resource.region} ${resource.tags.join(" ")}`.toLowerCase();
-    return matchesType && (!normalized || searchable.includes(normalized));
-  });
+  /* -------------------------------------------------- filtros del hub ---- */
 
-  resourceGrid.innerHTML = filtered.map((resource) => `
-    <article class="resource-card">
-      <div class="tag-row">
-        <span class="tag">${resource.type}</span>
-        <span class="tag">${resource.region}</span>
-      </div>
-      <div>
-        <h3>${resource.title}</h3>
-        <p>${resource.summary}</p>
-      </div>
-      <div class="resource-meta">Fuente: ${resource.source} · ${resource.version}</div>
-    </article>
-  `).join("") || `<p>No hay recursos para ese filtro.</p>`;
-}
+  const grid = document.querySelector("#resource-grid");
+  if (grid) {
+    const cards = Array.from(grid.querySelectorAll(".resource"));
+    const search = document.querySelector("#resource-search");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const counter = document.querySelector("#resource-count");
+    const empty = document.querySelector("#resource-empty");
 
-document.querySelectorAll(".chip").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".chip").forEach((chip) => chip.classList.remove("active"));
-    button.classList.add("active");
-    renderResources(button.dataset.filter, resourceSearch.value);
-  });
-});
+    // Normaliza para que "guia" encuentre "guía".
+    const fold = (value) =>
+      value
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
-resourceSearch.addEventListener("input", () => {
-  const active = document.querySelector(".chip.active")?.dataset.filter || "Todos";
-  renderResources(active, resourceSearch.value);
-});
+    let activeType = "Todos";
 
-function renderModules() {
-  moduleList.innerHTML = modules.map(([title, description, progress], index) => `
-    <article class="module-card">
-      <span class="module-number">${index + 1}</span>
-      <div>
-        <h3>${title}</h3>
-        <p>${description}</p>
-        <div class="progress-track" aria-label="Progreso demo ${progress}%"><span style="width:${progress}%"></span></div>
-      </div>
-    </article>
-  `).join("");
-}
+    const apply = () => {
+      const query = fold(search ? search.value.trim() : "");
+      let visible = 0;
 
-function renderDashboard(region = "Todas") {
-  dashboard.innerHTML = impactData[region].map(([label, value, target]) => {
-    const pct = Math.min(100, Math.round((value / target) * 100));
-    return `
-      <article class="dashboard-card">
-        <strong>${value}</strong>
-        <span>${label}</span>
-        <div class="bar" aria-label="${pct}% de la meta"><span style="width:${pct}%"></span></div>
-      </article>
-    `;
-  }).join("");
-}
+      for (const card of cards) {
+        const matchesType = activeType === "Todos" || card.dataset.type === activeType;
+        const matchesQuery = !query || fold(card.dataset.search).includes(query);
+        const show = matchesType && matchesQuery;
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
 
-regionSelect.addEventListener("change", () => renderDashboard(regionSelect.value));
+      if (counter) {
+        counter.textContent =
+          visible === cards.length
+            ? `Mostrando ${cards.length} de ${cards.length} recursos.`
+            : `Mostrando ${visible} de ${cards.length} recursos.`;
+      }
+      if (empty) empty.hidden = visible !== 0;
+    };
 
-actionForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(actionForm);
-  const region = data.get("region");
-  const problem = data.get("problem");
-  const objective = data.get("objective");
-  const indicator = data.get("indicator");
-  canvasOutput.dataset.visible = "true";
-  canvasOutput.innerHTML = `
-    <strong>Action Canvas generado</strong>
-    <p><b>Region:</b> ${region}</p>
-    <p><b>Problema:</b> ${problem}</p>
-    <p><b>Objetivo:</b> ${objective}</p>
-    <p><b>Indicador:</b> ${indicator}</p>
-    <p><b>Siguiente paso:</b> asignar aliados, fecha, evidencia esperada y revision de facilitador.</p>
-  `;
-});
-
-function animateCounters() {
-  document.querySelectorAll("[data-count]").forEach((node) => {
-    const target = Number(node.dataset.count);
-    const duration = 900;
-    const started = performance.now();
-    function tick(now) {
-      const progress = Math.min(1, (now - started) / duration);
-      node.textContent = Math.round(target * progress);
-      if (progress < 1) requestAnimationFrame(tick);
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        activeType = chip.dataset.filter;
+        for (const other of chips) {
+          other.setAttribute("aria-pressed", String(other === chip));
+        }
+        apply();
+      });
     }
-    requestAnimationFrame(tick);
+
+    if (search) search.addEventListener("input", apply);
+  }
+
+  /* ------------------------------------------------------- action lab ---- */
+
+  const form = document.querySelector("#action-form");
+  const output = document.querySelector("#canvas-output");
+
+  if (form && output) {
+    const LABELS = {
+      region: "Región",
+      scope: "Ámbito",
+      problem: "Problema priorizado",
+      objective: "Objetivo de la acción",
+      allies: "Aliados necesarios",
+      deadline: "Plazo estimado",
+      indicator: "Indicador principal",
+      evidence: "Evidencia esperada",
+      risks: "Riesgos y cuidados",
+    };
+    const ORDER = Object.keys(LABELS);
+
+    const clearError = (field) => {
+      field.removeAttribute("aria-invalid");
+      const existing = field.parentElement.querySelector(".field-error");
+      if (existing) existing.remove();
+    };
+
+    const showError = (field, message) => {
+      clearError(field);
+      field.setAttribute("aria-invalid", "true");
+      const note = document.createElement("p");
+      note.className = "field-error";
+      note.textContent = message;
+      field.parentElement.appendChild(note);
+    };
+
+    for (const field of form.querySelectorAll("[required]")) {
+      field.addEventListener("input", () => {
+        if (field.value.trim()) clearError(field);
+      });
+    }
+
+    form.addEventListener("reset", () => {
+      for (const field of form.querySelectorAll("[required]")) clearError(field);
+      output.dataset.filled = "false";
+      output.innerHTML = `
+        <div class="lab-placeholder">
+          <h3>Tu canvas aparecerá aquí</h3>
+          <p>Completa los campos marcados con <em>*</em> y presiona <strong>Generar canvas</strong>.</p>
+        </div>`;
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      let firstInvalid = null;
+      for (const field of form.querySelectorAll("[required]")) {
+        if (field.value.trim()) {
+          clearError(field);
+        } else {
+          showError(field, "Este campo es necesario para generar el canvas.");
+          if (!firstInvalid) firstInvalid = field;
+        }
+      }
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      const data = new FormData(form);
+      const rows = ORDER.map((key) => [LABELS[key], (data.get(key) || "").toString().trim()]).filter(
+        ([, value]) => value
+      );
+
+      const today = new Date().toLocaleDateString("es-PE", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+
+      const escapeHtml = (value) =>
+        value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+      output.dataset.filled = "true";
+      output.innerHTML = `
+        <div class="canvas-title">
+          <h3>Action Canvas</h3>
+          <span class="badge" data-tone="ok">Borrador</span>
+        </div>
+        <p class="canvas-meta">Generado el ${escapeHtml(today)} · PACTO-MI Action Lab</p>
+        <dl class="canvas-fields">
+          ${rows
+            .map(
+              ([label, value]) =>
+                `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`
+            )
+            .join("")}
+        </dl>
+        <div class="canvas-actions">
+          <button class="btn btn-primary btn-sm" type="button" data-action="print">Imprimir o guardar PDF</button>
+          <button class="btn btn-ghost btn-sm" type="button" data-action="copy">Copiar como texto</button>
+        </div>
+        <p class="lab-privacy">
+          Siguiente paso: comparte este borrador con un facilitador para revisarlo antes de ejecutarlo.
+        </p>`;
+
+      output.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      const printBtn = output.querySelector('[data-action="print"]');
+      if (printBtn) printBtn.addEventListener("click", () => window.print());
+
+      const copyBtn = output.querySelector('[data-action="copy"]');
+      if (copyBtn) {
+        copyBtn.addEventListener("click", async () => {
+          const text = [`ACTION CANVAS — PACTO-MI (${today})`, ""]
+            .concat(rows.map(([label, value]) => `${label}: ${value}`))
+            .join("\n");
+          try {
+            await navigator.clipboard.writeText(text);
+            copyBtn.textContent = "Copiado";
+          } catch {
+            copyBtn.textContent = "No se pudo copiar";
+          }
+          setTimeout(() => {
+            copyBtn.textContent = "Copiar como texto";
+          }, 2000);
+        });
+      }
+    });
+  }
+})();
+
+/* --------------------------------------------- registro del service worker */
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {
+      /* Sin service worker el sitio sigue funcionando con normalidad. */
+    });
   });
 }
-
-renderResources();
-renderModules();
-renderDashboard();
-animateCounters();
