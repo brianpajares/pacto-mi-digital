@@ -65,6 +65,23 @@ export default {
 2. Si debe aparecer en el menú, añádela a `nav` en `content/site.mjs`.
 3. `npm run build`. El generador la descubre sola y la incluye en el sitemap.
 
+## Editar un módulo del toolkit
+
+Los seis módulos del Toolkit técnico de formación se publican en `/aprende/<slug>`
+(una página por módulo, generada por `pages/modulos.mjs`).
+
+- Ficha del módulo (título, subtítulo, enfoque, objetivos, versión, PDF):
+  `content/modules.mjs`.
+- Contenido completo: `content/toolkit/modulo-N.mjs`. Se escribe como datos con
+  pocos tipos de bloque (`p`, `h`, `list`, `steps`, `table`, `callout`, `example`,
+  `exercise`, `figure`, `timeline`, `flow`, `cards`, `stats`, `pairs`, `link`,
+  `acronym`, `channels`, `pledge`); la lista y su HTML están en `lib/toolkit.mjs`.
+- Toda cifra conserva el territorio, el periodo y la fuente que cita el toolkit.
+  Si el toolkit no publica una URL, la fuente se muestra como texto, sin enlace.
+- Los PDF viven en `docs/toolkit/` (no se despliegan; ver `docs/toolkit/README.md`).
+  Si se publica una versión nueva, reemplaza el PDF con el mismo nombre y
+  actualiza `version`, `pages` y `size` en `content/modules.mjs`.
+
 ## Escribir el texto
 
 - **En español, con tildes.** El build falla si detecta palabras frecuentes sin tilde.

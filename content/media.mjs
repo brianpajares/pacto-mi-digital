@@ -78,6 +78,48 @@ export const media = {
     "Flyer de la cuarta sesión «Minería ilegal: ¿qué se está haciendo para combatirla?», con César Ipenza y Bruno Marcos Villanueva.",
     "Flyer de la sesión 4."
   ),
+
+  /* ---- Toolkit técnico de formación (portadas y figuras del documento) ---- */
+  "toolkit-m1": img(
+    "toolkit-m1", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 1: Minería ilegal, gobernanza territorial y desarrollo sostenible.",
+    "Portada del Módulo 1 · versión octubre de 2026."
+  ),
+  "toolkit-m2": img(
+    "toolkit-m2", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 2: Minería ilegal y crimen organizado, con un agente de espaldas junto a un río.",
+    "Portada del Módulo 2 · versión octubre de 2026."
+  ),
+  "toolkit-m3": img(
+    "toolkit-m3", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 3: Consecuencias ambientales y socioeconómicas de la minería ilegal.",
+    "Portada del Módulo 3 · versión noviembre de 2026."
+  ),
+  "toolkit-m4": img(
+    "toolkit-m4", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 4: Comunicación estratégica y activismo digital.",
+    "Portada del Módulo 4 · versión noviembre de 2026."
+  ),
+  "toolkit-m5": img(
+    "toolkit-m5", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 5: Marcos de política pública y mecanismos legales, con una balanza de la justicia al fondo.",
+    "Portada del Módulo 5 · versión noviembre de 2026."
+  ),
+  "toolkit-m6": img(
+    "toolkit-m6", 480, 679,
+    "Portada roja del Toolkit técnico de formación, Módulo 6: De lo aprendido a la acción, con dos personas de espaldas caminando.",
+    "Portada del Módulo 6 · versión noviembre de 2026."
+  ),
+  "toolkit-la-pampa": img(
+    "toolkit-la-pampa", 1400, 933,
+    "Infografía de La Pampa, Madre de Dios: cifras clave y línea de tiempo desde la expansión previa a 2013 hasta el nuevo control territorial de agosto de 2026.",
+    "Figura del toolkit (Módulo 1): evolución de La Pampa — expansión, Operación Mercurio, reducción de la deforestación y persistencia de organizaciones criminales. Fuentes: MINAM, MININTER, SERNANP-SINIA, Poder Judicial, Ministerio Público y TV Perú."
+  ),
+  "toolkit-pataz": img(
+    "toolkit-pataz", 1400, 496,
+    "Línea de tiempo de Pataz entre mayo de 2025 y junio de 2026: secuestro y asesinato de 13 trabajadores, detenciones, operaciones Relámpago y prórroga del estado de emergencia.",
+    "Figura del toolkit (Módulo 2): escalada criminal y respuesta del Estado en Pataz, 2025–2026, basada en fuentes oficiales y medios públicos."
+  ),
 };
 
 export function image(key) {

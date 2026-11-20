@@ -239,3 +239,11 @@ if ("serviceWorker" in navigator && location.protocol === "https:") {
     });
   });
 }
+
+/* ------------------------------------------------- toolkit: imprimir fichas */
+(() => {
+  "use strict";
+  for (const button of document.querySelectorAll("[data-print]")) {
+    button.addEventListener("click", () => window.print());
+  }
+})();
