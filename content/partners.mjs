@@ -51,6 +51,13 @@ export const partners = [
     detail:
       "Aporta el puente entre comunidades locales y el sector minero formal.",
   },
+  {
+    name: "CoRelación – Conectamos Ideas",
+    kind: "Agencia de comunicación",
+    region: "Nacional",
+    detail:
+      "Agencia de comunicación del proyecto: planificación y facilitación de actividades, desarrollo de materiales, comunicación estratégica y documentación audiovisual. Fuente: Toolkit PACTO-MI.",
+  },
 ];
 
 /**

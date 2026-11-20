@@ -23,7 +23,8 @@ async function loadPages() {
   const pages = [];
   for (const file of files) {
     const mod = await import(path.join(dir, file));
-    pages.push(mod.default);
+    // Un archivo puede exportar una página o una lista (p. ej. un módulo por página).
+    pages.push(...[].concat(mod.default));
   }
   return pages;
 }

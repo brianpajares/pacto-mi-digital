@@ -20,6 +20,7 @@ const timeline = [
     href: `/expert-talks#sesion-${s.n}`,
   })),
   { sort: "2026-06", when: "Junio de 2026", title: "PACTO-MI en el V Foro Internacional FIDAS 2026", place: "Puerto Maldonado · presencial", href: "/eventos#madre-de-dios" },
+  { sort: "2026-11", when: "Octubre y noviembre de 2026", title: "Toolkit técnico de formación: seis módulos publicados", place: "Digital · descarga en PDF", href: "/aprende" },
 ].sort((a, b) => a.sort.localeCompare(b.sort));
 const secondStage = events.find((e) => e.id === "madre-de-dios");
 
@@ -159,8 +160,8 @@ const body = html`
         <a class="card card-link" href="/aprende">
           <h3>Aprende</h3>
           <p>
-            ${modules.length} módulos formativos sobre minería ilegal, crimen organizado, impactos,
-            comunicación estratégica, política pública y planes de acción.
+            ${modules.length} módulos del toolkit técnico, completos en la web: minería ilegal, crimen
+            organizado, impactos, comunicación estratégica, prevención comunitaria y plan de acción.
           </p>
           <span class="card-arrow" aria-hidden="true">→</span>
         </a>
